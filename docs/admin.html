@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A.Email — Admin (static preview)</title>
+<style>
+  :root{--bg:#0f172a;--card:#1e293b;--ink:#e2e8f0;--muted:#94a3b8;--accent:#6366f1;--bad:#ef4444;--line:#334155}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  a{color:#93c5fd;text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:24px 24px 60px}
+  .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+  .brand{font-weight:700;font-size:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;margin-bottom:18px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+  .stat .n{font-size:22px;font-weight:700}
+  .stat .l{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+  th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase}
+  input{background:#0b1220;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:8px 10px;font:inherit}
+  button{background:var(--accent);color:#fff;border:0;border-radius:6px;padding:7px 12px;font:inherit;font-weight:600;cursor:pointer}
+  button.sm{padding:4px 8px;font-size:12px}
+  button.bad{background:var(--bad)} button.ghost{background:#334155}
+  .badge{padding:2px 8px;border-radius:999px;font-size:12px;font-weight:600}
+  .b-completed{background:rgba(34,197,94,.15);color:#86efac}
+  .b-pending{background:rgba(234,179,8,.15);color:#fde047}
+  .b-other{background:rgba(148,163,184,.15);color:#cbd5e1}
+  .login{max-width:380px;margin:8vh auto}
+  .login label{display:block;margin:10px 0 4px;color:var(--muted)}
+  .login input{width:100%}
+  .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  #ribbon{position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#0b1220;color:#e2e8f0;
+    font:600 13px/1.5 system-ui,Arial,sans-serif;text-align:center;padding:9px 14px;border-top:1px solid #334155}
+  #ribbon a{color:#93c5fd;margin-left:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Login view -->
+  <div id="loginView" class="login">
+    <div class="brand" style="text-align:center;margin-bottom:16px">A.Email Admin</div>
+    <div class="card">
+      <h3 style="margin-top:0">Sign in</h3>
+      <p style="color:var(--muted)">Static preview — <b>any</b> username/password signs you in (no backend).</p>
+      <label>Username</label><input id="u" value="admin">
+      <label>Password</label><input id="p" type="password" value="demo">
+      <div style="margin-top:14px"><button onclick="signIn()">Sign in</button></div>
+    </div>
+  </div>
+
+  <!-- Dashboard view -->
+  <div id="dashView" style="display:none">
+    <div class="top">
+      <div class="brand">A.Email Admin</div>
+      <div class="row">
+        <span style="color:var(--muted)">Signed in as <b>admin</b> (admin)</span>
+        <button class="ghost sm" onclick="signOut()">Log out</button>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="stat"><div class="n">250</div><div class="l">Registrations</div></div>
+      <div class="stat"><div class="n">77</div><div class="l">Completed</div></div>
+      <div class="stat"><div class="n">167</div><div class="l">Pending</div></div>
+      <div class="stat"><div class="n">23</div><div class="l">Paid accounts</div></div>
+      <div class="stat"><div class="n">2,300.00</div><div class="l">Revenue (HKD)</div></div>
+      <div class="stat"><div class="n">4</div><div class="l">Today</div></div>
+    </div>
+
+    <div class="card">
+      <div class="row" style="margin-bottom:14px">
+        <input placeholder="Search username / email…" style="flex:1;min-width:220px">
+        <button onclick="demo()">Search</button>
+      </div>
+      <div style="overflow:auto">
+      <table>
+        <tr><th>ID</th><th>Mailbox</th><th>Plan</th><th>Amount</th><th>Status</th><th>Contact</th><th>Created</th><th>Actions</th></tr>
+        <tbody id="rows"></tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">Recent transactions</h3>
+      <div style="overflow:auto">
+      <table>
+        <tr><th>Transaction</th><th>User</th><th>Amount</th><th>Status</th><th>Created</th></tr>
+        <tbody id="txrows"></tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="ribbon">🚧 Static admin preview — dummy data, no backend.
+  <a href="index.html">← Back to site demo</a> ·
+  <a href="https://github.com/1MrC1/email-address-shop/blob/main/admin.php" target="_blank" rel="noopener">admin.php source ↗</a>
+</div>
+
+<script>
+  var USERS = [
+    {id:212,mb:'alice@a.email',plan:'free',amt:'0.00',st:'completed',c:'alice@example.com',d:'2025-11-25'},
+    {id:208,mb:'bn@a.email',plan:'lifetime',amt:'100.00',st:'pending',c:'bob@example.com',d:'2025-11-24'},
+    {id:201,mb:'q@a.email',plan:'lifetime',amt:'1000.00',st:'completed',c:'carol@example.com',d:'2025-11-20'},
+    {id:198,mb:'dave@a.email',plan:'monthly',amt:'10.00',st:'completed',c:'dave@example.org',d:'2025-11-19'},
+    {id:190,mb:'erin@a.email',plan:'free',amt:'0.00',st:'pending',c:'erin@example.net',d:'2025-11-18'}
+  ];
+  var TX = [
+    {t:'TX_1764050_201',u:'q',a:'1000.00',cur:'HKD',st:'completed',d:'2025-11-20'},
+    {t:'TX_1763900_198',u:'dave',a:'10.00',cur:'HKD',st:'completed',d:'2025-11-19'},
+    {t:'TX_1763780_208',u:'bn',a:'100.00',cur:'HKD',st:'pending',d:'2025-11-24'}
+  ];
+  function badge(s){var c=s==='completed'?'b-completed':(s==='pending'?'b-pending':'b-other');return '<span class="badge '+c+'">'+s+'</span>';}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];});}
+  function demo(){ alert('Static preview — no backend. Run admin.php on the server for the real thing.'); }
+  function render(){
+    document.getElementById('rows').innerHTML = USERS.map(function(u){
+      return '<tr><td>'+u.id+'</td><td>'+esc(u.mb)+'</td><td>'+u.plan+'</td><td>'+u.amt+'</td><td>'+badge(u.st)+'</td><td>'+esc(u.c)+'</td><td>'+u.d+'</td>'
+        + '<td><div class="row">'
+        + (u.st!=='completed'?'<button class="sm" onclick="demo()">Complete</button>':'')
+        + '<button class="sm" onclick="demo()">Re-provision</button>'
+        + '<button class="sm ghost" onclick="demo()">Cancel</button>'
+        + '<button class="sm bad" onclick="demo()">Delete</button>'
+        + '</div></td></tr>';
+    }).join('');
+    document.getElementById('txrows').innerHTML = TX.map(function(t){
+      return '<tr><td>'+esc(t.t)+'</td><td>'+esc(t.u)+'</td><td>'+t.a+' '+t.cur+'</td><td>'+badge(t.st)+'</td><td>'+t.d+'</td></tr>';
+    }).join('');
+  }
+  function signIn(){ document.getElementById('loginView').style.display='none'; document.getElementById('dashView').style.display='block'; render(); }
+  function signOut(){ document.getElementById('dashView').style.display='none'; document.getElementById('loginView').style.display='block'; }
+</script>
+</body>
+</html>

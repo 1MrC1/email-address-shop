@@ -1,0 +1,4 @@
+<FilesMatch "\.(sql|bak|log|lock|json)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>

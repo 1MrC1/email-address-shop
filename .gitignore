@@ -1,0 +1,19 @@
+# ── Secrets / live config — NEVER commit ──────────────────────────────
+# Copy config.example.php → config.php and fill in real credentials.
+/config.php
+
+# ── Logs ──────────────────────────────────────────────────────────────
+# NOTE: this app logs plaintext passwords; keep all logs out of version control.
+*.log
+
+# ── PHP dependencies — run `composer install` ─────────────────────────
+/vendor/
+
+# ── Ad-hoc / local SQL (the schema db.sql IS tracked) ─────────────────
+/delete-test.sql
+
+# ── Internal maintenance tooling (kept local, not published) ──────────
+/int/
+
+# ── Runtime caches ────────────────────────────────────────────────────
+/cache/

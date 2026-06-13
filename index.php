@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.Email — Simplified Email Excellence</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="bg-grid"></div>
+        <div class="bg-orb"></div>
+        <div class="bg-orb"></div>
+        <div class="bg-orb"></div>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">A.Email</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="mailto:support@a.email">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Email. Simplified.</h1>
+                <p>Get your perfect email address with A.Email - clean, professional, and built for the modern world.</p>
+                
+                <div class="email-form">
+                    <h3 class="form-title">Claim Your Address</h3>
+                    <div class="input-group">
+                        <input type="text" class="email-input" id="emailInput" placeholder="yourname" autocomplete="off">
+                        <span class="email-suffix">@a.email</span>
+                    </div>
+                    <div class="pricing-display" id="pricingDisplay">
+                        <div class="pricing-info">
+                            <span class="pricing-label">Availability:</span>
+                            <span class="pricing-value checking" id="availabilityStatus">Enter a username</span>
+                        </div>
+                        <div class="pricing-info" id="pricingInfo" style="display: none;">
+                            <span class="pricing-label">Pricing:</span>
+                            <span class="pricing-value" id="pricingValue">Free</span>
+                        </div>
+                    </div>
+                    <button class="cta-button" id="claimButton" disabled>Claim Address</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="features-container">
+                <h2>Why Choose A.Email?</h2>
+                <p class="features-subtitle">Simple, clean, and professional email addresses that make an impression.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Lightning Fast</h3>
+                        <p>Ultra-fast email delivery with optimized servers worldwide. Your messages arrive instantly.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>Advanced Security</h3>
+                        <p>End-to-end encryption, spam protection, and enterprise-grade security for your peace of mind.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>Clean Interface</h3>
+                        <p>Minimalist design that focuses on what matters - your communication, without distractions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>Mobile Ready</h3>
+                        <p>Perfect across all devices. Access your email seamlessly from desktop, tablet, or phone.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3>Developer Friendly</h3>
+                        <p>APIs, webhooks, and integrations. Built by developers, for developers and power users.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💎</div>
+                        <h3>Premium Domains</h3>
+                        <p>Short, memorable addresses that enhance your professional presence and brand identity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing" id="pricing">
+            <div class="pricing-container">
+                <h2>Simple Pricing</h2>
+                <p class="pricing-subtitle">Choose the plan that fits your needs. No hidden fees, no surprises.</p>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Free</h3>
+                        <div class="price">$0<span style="font-size: 1rem; font-weight: 400;">/forever</span></div>
+                        <p class="price-note">For personal use</p>
+                        <ul class="pricing-features">
+                            <li>3+ character usernames</li>
+                            <li>10GB storage</li>
+                            <li>Basic spam protection</li>
+                            <li>Standard support</li>
+                        </ul>
+                        <button class="btn btn-primary">Get Started</button>
+                    </div>
+                    
+                    <div class="pricing-card featured">
+                        <h3>Premium</h3>
+                        <div class="price">$10<span style="font-size: 1rem; font-weight: 400;">/month</span></div>
+                        <p class="price-note">For professionals</p>
+                        <ul class="pricing-features">
+                            <li>2 character usernames</li>
+                            <li>100GB storage</li>
+                            <li>Advanced spam protection</li>
+                            <li>Priority support</li>
+                            <li>Custom signatures</li>
+                            <li>Email aliases</li>
+                        </ul>
+                        <button class="btn btn-primary">Start Free Trial</button>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>Elite</h3>
+                        <div class="price">$100<span style="font-size: 1rem; font-weight: 400;">/lifetime</span></div>
+                        <p class="price-note">One-time payment</p>
+                        <ul class="pricing-features">
+                            <li>1 character usernames</li>
+                            <li>Unlimited storage</li>
+                            <li>Enterprise security</li>
+                            <li>24/7 support</li>
+                            <li>All premium features</li>
+                            <li>API access</li>
+                        </ul>
+                        <button class="btn btn-primary">Get Elite</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Registration Modal -->
+    <div class="modal" id="registrationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Complete Your Registration</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="selected-email">
+                    <div class="email" id="selectedEmail">username@a.email</div>
+                    <div class="status" id="selectedStatus">Available</div>
+                </div>
+
+                <form id="registrationForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Full Name *</label>
+                            <input type="text" class="form-input" id="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Display Name *</label>
+                            <input type="text" class="form-input" id="displayName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Password *</label>
+                            <input type="password" class="form-input" id="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Confirm Password *</label>
+                            <input type="password" class="form-input" id="confirmPassword" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Your Current Email *</label>
+                        <input type="email" class="form-input" id="currentEmail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Why do you want this email?</label>
+                        <textarea class="form-input form-textarea" id="intention" placeholder="Optional: Tell us about your intended use..."></textarea>
+                    </div>
+
+                    <div class="plan-selection" id="planSelection">
+                        <h3 class="plan-title">Choose Your Plan</h3>
+                        <div class="plan-options">
+    <div class="plan-option active" data-plan="monthly">  <!-- Make monthly default -->
+        <div class="plan-name">Monthly</div>
+        <div class="plan-price" id="monthlyPrice">$10.00/month</div>
+        <div class="plan-desc">Perfect for ongoing use</div>
+    </div>
+    <div class="plan-option" data-plan="lifetime">  <!-- Remove active from lifetime -->
+        <div class="plan-name">Lifetime</div>
+        <div class="plan-price" id="lifetimePrice">$100.00 once</div>
+        <div class="plan-desc">One-time payment</div>
+    </div>
+</div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="submitButton">Create Account</button>
+                    </div>
+
+                    <div class="message error" id="errorMessage"></div>
+                    <div class="message success" id="successMessage"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentPricingData = null;
+        let selectedPlan = 'lifetime';
+        let typingTimer = null;
+        const typingDelay = 500;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeEventListeners();
+            showPricingDisplay();
+        });
+
+        // Event listeners
+        function initializeEventListeners() {
+            const emailInput = document.getElementById('emailInput');
+            const claimButton = document.getElementById('claimButton');
+            const registrationForm = document.getElementById('registrationForm');
+            const planOptions = document.querySelectorAll('.plan-option');
+
+            // Email input with real-time checking
+            emailInput.addEventListener('input', function() {
+                const username = this.value.trim().toLowerCase();
+                
+                // Clean input
+                this.value = username.replace(/[^a-z0-9._-]/g, '');
+                
+                clearTimeout(typingTimer);
+                
+                if (username.length === 0) {
+                    updateAvailability('Enter a username', 'checking');
+                    hidePricingInfo();
+                    claimButton.disabled = true;
+                    return;
+                }
+
+                if (username.length >= 1) {
+                    updateAvailability('Checking...', 'checking');
+                    
+                    typingTimer = setTimeout(() => {
+                        checkAvailability(username);
+                    }, typingDelay);
+                }
+            });
+
+            // Claim button
+            claimButton.addEventListener('click', function() {
+                const username = emailInput.value.trim();
+                if (username && currentPricingData) {
+                    showRegistrationModal(username, currentPricingData);
+                }
+            });
+
+            // Plan selection
+            planOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            planOptions.forEach(opt => opt.classList.remove('active'));
+            this.classList.add('active');
+            selectedPlan = this.dataset.plan;
+            
+            // Debug log to verify selection
+            console.log('Selected plan:', selectedPlan);
+        });
+    });
+
+            // Form submission
+            registrationForm.addEventListener('submit', handleRegistration);
+
+            // Auto-fill display name
+            const fullName = document.getElementById('fullName');
+            const displayName = document.getElementById('displayName');
+            
+            fullName.addEventListener('input', function() {
+                if (!displayName.value || displayName.dataset.autoFilled === 'true') {
+                    displayName.value = this.value;
+                    displayName.dataset.autoFilled = 'true';
+                }
+            });
+
+            displayName.addEventListener('input', function() {
+                if (this.value !== fullName.value) {
+                    this.dataset.autoFilled = 'false';
+                }
+            });
+
+            // Password validation
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+            
+            confirmPassword.addEventListener('input', function() {
+                if (this.value && this.value !== password.value) {
+                    this.style.borderColor = 'var(--error)';
+                } else {
+                    this.style.borderColor = 'var(--border)';
+                }
+            });
+
+            // Close modal on backdrop click
+            document.getElementById('registrationModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+
+            // Close modal on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && document.getElementById('registrationModal').classList.contains('active')) {
+                    closeModal();
+                }
+            });
+        }
+
+        // Check username availability
+        async function checkAvailability(username) {
+            if (!validateUsername(username)) {
+                updateAvailability('Invalid format', 'taken');
+                hidePricingInfo();
+                document.getElementById('claimButton').disabled = true;
+                return;
+            }
+
+            try {
+                const response = await fetch('pricing.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        action: 'check_pricing',
+                        username: username
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    currentPricingData = result.data;
+                    updateAvailability('Available ✓', 'available');
+                    showPricingInfo(result.data);
+                    document.getElementById('claimButton').disabled = false;
+                } else {
+                    updateAvailability('Taken ✗', 'taken');
+                    hidePricingInfo();
+                    document.getElementById('claimButton').disabled = true;
+                }
+            } catch (error) {
+                console.error('Error checking availability:', error);
+                updateAvailability('Error checking', 'taken');
+                hidePricingInfo();
+                document.getElementById('claimButton').disabled = true;
+            }
+        }
+
+        // Update availability display
+        function updateAvailability(text, status) {
+            const statusElement = document.getElementById('availabilityStatus');
+            statusElement.textContent = text;
+            statusElement.className = `pricing-value ${status}`;
+        }
+
+        // Show pricing display
+        function showPricingDisplay() {
+            document.getElementById('pricingDisplay').style.display = 'block';
+        }
+
+        // Show pricing info
+        function showPricingInfo(data) {
+            const pricingInfo = document.getElementById('pricingInfo');
+            const pricingValue = document.getElementById('pricingValue');
+            
+            if (data.is_free) {
+                pricingValue.textContent = 'Free Forever';
+                pricingValue.className = 'pricing-value free';
+            } else {
+                const monthly = parseFloat(data.monthly_price).toFixed(2);
+                const lifetime = parseFloat(data.lifetime_price).toFixed(2);
+                pricingValue.textContent = `${monthly}/mo or ${lifetime} lifetime`;
+                pricingValue.className = 'pricing-value premium';
+            }
+            
+            pricingInfo.style.display = 'flex';
+        }
+
+        // Hide pricing info
+        function hidePricingInfo() {
+            document.getElementById('pricingInfo').style.display = 'none';
+        }
+
+        function showRegistrationModal(username, pricingData) {
+    const modal = document.getElementById('registrationModal');
+    const selectedEmail = document.getElementById('selectedEmail');
+    const selectedStatus = document.getElementById('selectedStatus');
+    const planSelection = document.getElementById('planSelection');
+    const monthlyPrice = document.getElementById('monthlyPrice');
+    const lifetimePrice = document.getElementById('lifetimePrice');
+
+    selectedEmail.textContent = `${username}@a.email`;
+    selectedStatus.textContent = 'Available';
+
+    if (pricingData.is_free) {
+        planSelection.style.display = 'none';
+        selectedPlan = 'free'; // Set to free for free accounts
+    } else {
+        planSelection.style.display = 'block';
+        monthlyPrice.textContent = `$${parseFloat(pricingData.monthly_price).toFixed(2)}/month`;
+        lifetimePrice.textContent = `$${parseFloat(pricingData.lifetime_price).toFixed(2)} once`;
+        
+        // Reset to monthly as default for premium accounts
+        selectedPlan = 'monthly';
+        
+        // Update UI to show monthly as selected
+        const planOptions = document.querySelectorAll('.plan-option');
+        planOptions.forEach(opt => opt.classList.remove('active'));
+        document.querySelector('[data-plan="monthly"]').classList.add('active');
+    }
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+        // Close modal
+        function closeModal() {
+            const modal = document.getElementById('registrationModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            
+            // Reset form
+            document.getElementById('registrationForm').reset();
+            hideMessages();
+        }
+
+        // Handle registration
+        async function handleRegistration(e) {
+    e.preventDefault();
+    
+    const submitButton = document.getElementById('submitButton');
+    const originalText = submitButton.textContent;
+    
+    // Validate form
+    if (!validateForm()) {
+        return;
+    }
+    
+    // Disable submit button
+    submitButton.disabled = true;
+    submitButton.textContent = 'Creating Account...';
+    submitButton.classList.add('loading');
+    
+    try {
+        // Determine the correct amount based on plan selection
+        let amount = 0;
+        let planType = 'free';
+        
+        if (!currentPricingData.is_free) {
+            planType = selectedPlan;
+            if (selectedPlan === 'monthly') {
+                amount = parseFloat(currentPricingData.monthly_price);
+            } else if (selectedPlan === 'lifetime') {
+                amount = parseFloat(currentPricingData.lifetime_price);
+            }
+        }
+        
+        const formData = {
+            action: 'register',
+            username: currentPricingData.username,
+            full_name: document.getElementById('fullName').value.trim(),
+            display_name: document.getElementById('displayName').value.trim(),
+            password: document.getElementById('password').value,
+            email: document.getElementById('currentEmail').value.trim(),
+            intention: document.getElementById('intention').value.trim(),
+            plan_type: planType,  // This will be 'free', 'monthly', or 'lifetime'
+            amount: amount        // This will be the correct amount
+        };
+        
+        // Debug log to verify data being sent
+        console.log('Sending registration data:', formData);
+        
+        const response = await fetch('register.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            if (result.data.requires_payment) {
+                showSuccess('Account created! Redirecting to payment...');
+                setTimeout(() => {
+                    // Pass both plan and amount to payment page
+                    window.location.href = `payment.php?user_id=${result.data.user_id}&plan=${planType}&amount=${amount}`;
+                }, 1500);
+            } else {
+                showSuccess('Account created successfully! Redirecting...');
+                setTimeout(() => {
+                    window.location.href = `success.php?user_id=${result.data.user_id}`;
+                }, 2000);
+            }
+        } else {
+            showError(result.message || 'Registration failed');
+        }
+        
+    } catch (error) {
+        console.error('Registration error:', error);
+        showError('Registration failed. Please try again.');
+    } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+        submitButton.classList.remove('loading');
+    }
+}
+        // Validate form
+        function validateForm() {
+            const fullName = document.getElementById('fullName').value.trim();
+            const displayName = document.getElementById('displayName').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const currentEmail = document.getElementById('currentEmail').value.trim();
+            
+            if (!fullName || !displayName || !password || !confirmPassword || !currentEmail) {
+                showError('Please fill in all required fields');
+                return false;
+            }
+            
+            if (password !== confirmPassword) {
+                showError('Passwords do not match');
+                return false;
+            }
+            
+            if (password.length < 8) {
+                showError('Password must be at least 8 characters long');
+                return false;
+            }
+            
+            if (!validateEmail(currentEmail)) {
+                showError('Please enter a valid email address');
+                return false;
+            }
+            
+            return true;
+        }
+
+        // Validate username
+        function validateUsername(username) {
+            if (!username || username.length < 1 || username.length > 50) {
+                return false;
+            }
+            
+            return /^[a-zA-Z0-9._-]+$/.test(username) && 
+                   !username.startsWith('.') && !username.startsWith('-') && !username.startsWith('_') &&
+                   !username.endsWith('.') && !username.endsWith('-') && !username.endsWith('_');
+        }
+
+        // Validate email
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        // Show error message
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.classList.add('show');
+            
+            const successDiv = document.getElementById('successMessage');
+            successDiv.classList.remove('show');
+        }
+
+        // Show success message
+        function showSuccess(message) {
+            const successDiv = document.getElementById('successMessage');
+            successDiv.textContent = message;
+            successDiv.classList.add('show');
+            
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.classList.remove('show');
+        }
+
+        // Hide messages
+        function hideMessages() {
+            document.getElementById('errorMessage').classList.remove('show');
+            document.getElementById('successMessage').classList.remove('show');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation to elements when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature cards and pricing cards
+        document.querySelectorAll('.feature-card, .pricing-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
